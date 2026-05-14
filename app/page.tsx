@@ -588,11 +588,11 @@ export default function Home() {
         </section>
 
         {/* ─── BUILT FOR KUWAIT ──────────────────────────────────── */}
-        <section id="kuwait" className="py-24 relative">
+        <section id="kuwait" className="py-24 bg-slate-50/80 relative">
           <div className="mx-auto max-w-7xl px-6">
             <div className="reveal text-center max-w-3xl mx-auto mb-16">
-              <span className="inline-block rounded-full bg-blue-50 border border-blue-100 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-blue-700 mb-4">
-                Built for Kuwait
+              <span className="inline-block rounded-full bg-blue-50 border border-blue-100 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-blue-700 mb-5">
+                🇰🇼 Built for Kuwait
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-3">
                 Built for Kuwait.{" "}
