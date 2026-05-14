@@ -737,14 +737,13 @@ export default function Home() {
             }, { threshold: 0.12 });
             document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-            // Sticky nav glass effect
+            // Nav shadow on scroll
             const nav = document.getElementById('navbar');
-            const wrap = document.getElementById('navWrap');
             window.addEventListener('scroll', () => {
-              if (window.scrollY > 20) {
-                nav.style.cssText = 'background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(226,232,240,0.8);box-shadow:0 1px 20px rgba(0,0,0,0.06)';
+              if (window.scrollY > 8) {
+                nav.style.boxShadow = '0 2px 24px rgba(0,0,0,0.08)';
               } else {
-                nav.style.cssText = '';
+                nav.style.boxShadow = '';
               }
             });
           `,
