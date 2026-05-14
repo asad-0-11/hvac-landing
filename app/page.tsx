@@ -151,139 +151,187 @@ export default function Home() {
       {/* ─── NAVBAR ─────────────────────────────────────────────── */}
       <nav
         id="navbar"
-        className="fixed inset-x-0 top-0 z-50 bg-white border-b border-slate-200/80 shadow-sm transition-all duration-300"
+        className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+        style={{
+          background: "rgba(255,255,255,0.98)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
+          borderBottom: "1px solid rgba(226,232,240,0.6)",
+        }}
       >
+        {/* Decorative gradient line at bottom of nav */}
         <div
-          id="navWrap"
-          className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 transition-all duration-300"
-        >
+          className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, rgba(37,99,235,0.35) 30%, rgba(99,102,241,0.35) 70%, transparent 100%)",
+          }}
+        />
+
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2.5 group">
+          <a href="#hero" className="flex items-center gap-3 group">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/smp-logo.png"
               alt="ShipMyProject logo"
-              width={36}
-              height={36}
-              className="rounded-xl object-cover shadow-sm"
+              width={34}
+              height={34}
+              className="rounded-xl object-cover shadow-sm ring-1 ring-slate-200"
             />
             <div className="flex flex-col leading-tight">
-              <span className="text-lg font-extrabold tracking-tight text-slate-900">
-                ShipMyProject
-                <span className="text-blue-600">.</span>
+              <span className="text-[15px] font-extrabold tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+                ShipMyProject<span className="text-blue-600">.</span>
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+              <span className="text-[9px] font-black uppercase tracking-[0.18em] text-slate-400">
                 HVAC Kuwait
               </span>
             </div>
           </a>
 
           {/* Desktop nav links */}
-          <ul className="hidden items-center gap-8 text-sm font-semibold text-slate-500 lg:flex">
-            <li>
-              <a href="#pain" className="hover:text-slate-900 transition-colors py-1">
-                Why Switch
-              </a>
-            </li>
-            <li>
-              <a href="#features" className="hover:text-slate-900 transition-colors py-1">
-                Features
-              </a>
-            </li>
-            <li>
-              <a href="#kuwait" className="hover:text-slate-900 transition-colors py-1">
-                Built for Kuwait
-              </a>
-            </li>
-            <li>
-              <a href="#demo" className="hover:text-slate-900 transition-colors py-1">
-                Contact
-              </a>
-            </li>
+          <ul className="hidden items-center gap-1 text-sm font-semibold text-slate-500 lg:flex">
+            {[
+              { href: "#pain", label: "Why Switch" },
+              { href: "#features", label: "Features" },
+              { href: "#kuwait", label: "Built for Kuwait" },
+              { href: "#demo", label: "Contact" },
+            ].map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="relative px-3.5 py-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-all duration-200 block"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
 
-          {/* CTA */}
-          <div className="hidden items-center gap-3 lg:flex">
+          {/* Right side CTAs */}
+          <div className="hidden items-center gap-2 lg:flex">
             <a
               href="https://wa.me/96550324743"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-semibold text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-all"
             >
-              <span className="text-base">📱</span> WhatsApp
+              <span className="text-sm">📱</span>
+              <span>WhatsApp</span>
             </a>
+            <div className="w-px h-5 bg-slate-200 mx-1" />
             <a
               href="#demo"
-              className="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-blue-600 hover:-translate-y-px hover:shadow-lg hover:shadow-blue-200"
+              className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold text-white transition-all hover:-translate-y-px hover:shadow-lg hover:shadow-blue-500/25"
+              style={{
+                background: "linear-gradient(135deg, #1e40af 0%, #2563eb 60%, #4f46e5 100%)",
+              }}
             >
-              Book Demo →
+              Book Demo
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
             </a>
           </div>
 
           {/* Mobile CTA */}
           <a
             href="#demo"
-            className="rounded-full bg-slate-900 px-4 py-2 text-sm font-bold text-white lg:hidden"
+            className="rounded-full px-4 py-2 text-sm font-bold text-white lg:hidden"
+            style={{ background: "linear-gradient(135deg, #1e40af, #2563eb)" }}
           >
             Book Demo
           </a>
         </div>
       </nav>
 
-      <main className="pt-24">
+      <main>
         {/* ─── HERO ──────────────────────────────────────────────── */}
         <section
           id="hero"
-          className="relative py-24 md:py-36 overflow-hidden"
+          className="relative overflow-hidden"
+          style={{ paddingTop: "calc(4rem + 56px)", paddingBottom: "5rem" }}
         >
-          {/* Dark gradient backdrop behind hero content */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900" />
-          <div className="absolute inset-0 -z-10 opacity-[0.04]"
+          {/* Background layers */}
+          <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, #0a0f1e 0%, #0c1a3a 40%, #0f172a 100%)" }} />
+          {/* Mesh gradient orbs */}
+          <div className="absolute -top-32 -right-32 h-[700px] w-[700px] rounded-full blur-[130px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%)" }} />
+          <div className="absolute top-1/2 -left-48 h-[600px] w-[600px] rounded-full blur-[120px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)" }} />
+          <div className="absolute bottom-0 left-1/3 h-[500px] w-[500px] rounded-full blur-[100px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%)" }} />
+          {/* Subtle dot grid */}
+          <div className="absolute inset-0 -z-10 opacity-[0.035]"
             style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23fff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+              backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
             }}
           />
-          <div className="absolute top-1/3 right-0 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-indigo-600/15 blur-[100px] pointer-events-none" />
 
           <div className="relative z-10 mx-auto max-w-7xl px-6">
             {/* Top badge */}
-            <div className="flex justify-center mb-12">
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-blue-400/25 bg-blue-500/10 px-5 py-2 text-sm font-bold text-blue-300 backdrop-blur-sm">
-                <span className="relative flex h-2.5 w-2.5">
+            <div className="flex justify-center mb-10">
+              <div
+                className="inline-flex items-center gap-2.5 rounded-full border px-5 py-2 text-sm font-bold text-blue-200 backdrop-blur-sm"
+                style={{
+                  background: "rgba(37,99,235,0.12)",
+                  borderColor: "rgba(96,165,250,0.2)",
+                }}
+              >
+                <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-blue-400" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-400" />
                 </span>
                 Beta launching in Kuwait — Join the waitlist
+                <span className="text-blue-400/50">·</span>
+                <span className="text-blue-300/70">انضم إلى قائمة الانتظار</span>
               </div>
             </div>
 
             {/* Bilingual hero columns */}
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-14 items-start">
               {/* English */}
               <div className="text-white">
-                <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold leading-[1.08] tracking-tight mb-6">
+                {/* Floating notification card */}
+                <div
+                  className="inline-flex items-center gap-3 rounded-2xl px-4 py-2.5 mb-7 border"
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    borderColor: "rgba(255,255,255,0.1)",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl text-base"
+                    style={{ background: "rgba(37,99,235,0.3)" }}>
+                    🔔
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold text-white/90">AMC contract expiring in 7 days</p>
+                    <p className="text-[11px] text-white/40">Al Hamra Tower · 48 units · KD 2,800</p>
+                  </div>
+                  <span className="ml-1 text-[10px] font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/20">
+                    Auto-reminded ✓
+                  </span>
+                </div>
+
+                <h1 className="text-4xl md:text-5xl xl:text-[3.6rem] font-extrabold leading-[1.06] tracking-tight mb-5">
                   Stop running your AC maintenance business on{" "}
                   <span
                     className="text-transparent bg-clip-text"
                     style={{
-                      backgroundImage:
-                        "linear-gradient(135deg, #60a5fa 0%, #34d399 100%)",
+                      backgroundImage: "linear-gradient(135deg, #60a5fa 0%, #34d399 100%)",
                     }}
                   >
                     Excel.
                   </span>
                 </h1>
-                <p className="text-lg text-blue-100/75 leading-relaxed mb-8 max-w-lg">
-                  The first software built for Kuwait HVAC contractors. Track
-                  AMC contracts, dispatch technicians, send Arabic invoices, and
-                  renew contracts on autopilot — all from one place.
+                <p className="text-base text-white/60 leading-relaxed mb-7 max-w-md">
+                  The first software built for Kuwait HVAC contractors. AMC
+                  contracts, technician dispatch, Arabic invoices, and auto-renewals
+                  — all from one place.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 mb-6">
                   <a
                     href="#demo"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-base font-extrabold text-slate-900 shadow-xl shadow-white/10 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-extrabold text-slate-900 shadow-xl transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-white/10"
                   >
                     Book a 20-min demo →
                   </a>
@@ -291,15 +339,20 @@ export default function Home() {
                     href="https://wa.me/96550324743"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/20 bg-white/10 px-7 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border px-7 py-3.5 text-sm font-semibold text-white/80 transition-all hover:text-white hover:bg-white/10"
+                    style={{ borderColor: "rgba(255,255,255,0.18)" }}
                   >
                     📱 WhatsApp Us
                   </a>
                 </div>
                 {/* Trust pills */}
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {["✓ Arabic invoicing", "✓ KWD native", "✓ No IT setup needed", "✓ WhatsApp support"].map(t => (
-                    <span key={t} className="inline-flex items-center gap-1 rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-semibold text-blue-200">
+                <div className="flex flex-wrap gap-2">
+                  {["✓ Arabic invoicing", "✓ KWD native", "✓ No IT setup", "✓ WhatsApp support"].map(t => (
+                    <span
+                      key={t}
+                      className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold"
+                      style={{ background: "rgba(255,255,255,0.07)", color: "rgba(147,197,253,0.85)", border: "1px solid rgba(255,255,255,0.08)" }}
+                    >
                       {t}
                     </span>
                   ))}
@@ -308,37 +361,47 @@ export default function Home() {
 
               {/* Arabic */}
               <div dir="rtl" className="text-white text-right">
-                <h2 className="text-3xl md:text-4xl xl:text-5xl font-extrabold leading-[1.15] tracking-tight mb-6">
+                {/* Divider line on desktop */}
+                <div
+                  className="hidden lg:block h-px mb-7 mt-0"
+                  style={{ background: "linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent)" }}
+                />
+                <h2 className="text-3xl md:text-4xl xl:text-[2.8rem] font-extrabold leading-[1.2] tracking-tight mb-5">
                   توقّف عن إدارة عقود صيانة المكيفات على{" "}
                   <span
                     className="text-transparent bg-clip-text"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(135deg, #34d399 0%, #60a5fa 100%)",
-                    }}
+                    style={{ backgroundImage: "linear-gradient(135deg, #34d399 0%, #60a5fa 100%)" }}
                   >
                     إكسل.
                   </span>
                 </h2>
-                <p className="text-lg text-blue-100/75 leading-relaxed mb-8">
+                <p className="text-base text-white/60 leading-relaxed mb-7">
                   أول برنامج مصمم خصيصاً لمقاولي تكييف الهواء في الكويت. تابع
                   عقود الصيانة السنوية، وزّع المهام على الفنيين، أصدر الفواتير
                   بالعربية، وجدّد العقود تلقائياً — كل ذلك من مكان واحد.
                 </p>
                 <a
                   href="#demo"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-base font-extrabold text-slate-900 shadow-xl shadow-white/10 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-extrabold text-slate-900 shadow-xl transition-all hover:-translate-y-0.5 hover:shadow-2xl"
                 >
                   ← احجز عرضاً تجريبياً مجانياً — 20 دقيقة
                 </a>
-                <p className="text-blue-400/60 text-sm font-medium mt-4">
-                  صُمّم في الكويت. للكويت.
-                </p>
+                <div className="flex flex-wrap justify-end gap-2 mt-5">
+                  {["✓ فواتير عربية", "✓ دينار كويتي", "✓ دعم واتساب"].map(t => (
+                    <span
+                      key={t}
+                      className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold"
+                      style={{ background: "rgba(255,255,255,0.07)", color: "rgba(147,197,253,0.85)", border: "1px solid rgba(255,255,255,0.08)" }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Stats strip */}
-            <div className="mt-20 grid grid-cols-3 gap-8 border-t border-white/10 pt-14">
+            <div className="mt-16 grid grid-cols-3 gap-8 border-t pt-12" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
               {[
                 {
                   value: "80%",
@@ -369,7 +432,7 @@ export default function Home() {
             </div>
 
             {/* Mock dashboard preview */}
-            <div className="mt-16 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+            <div className="mt-12 rounded-2xl overflow-hidden shadow-2xl shadow-black/60" style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
               {/* Browser chrome */}
               <div className="flex items-center gap-2 bg-slate-800/80 px-4 py-3 border-b border-white/10">
                 <span className="h-3 w-3 rounded-full bg-red-500/80" />
@@ -832,15 +895,17 @@ export default function Home() {
             }, { threshold: 0.12 });
             document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-            // Nav shadow on scroll
+            // Nav elevation on scroll
             const nav = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
-              if (window.scrollY > 8) {
-                nav.style.boxShadow = '0 2px 24px rgba(0,0,0,0.08)';
+              if (window.scrollY > 10) {
+                nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.1)';
+                nav.style.background = 'rgba(255,255,255,1)';
               } else {
                 nav.style.boxShadow = '';
+                nav.style.background = 'rgba(255,255,255,0.98)';
               }
-            });
+            }, { passive: true });
           `,
         }}
       />
