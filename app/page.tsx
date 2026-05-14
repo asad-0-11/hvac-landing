@@ -434,19 +434,16 @@ export default function Home() {
         </section>
 
         {/* ─── PAIN POINTS ───────────────────────────────────────── */}
-        <section id="pain" className="py-24 relative">
+        <section id="pain" className="py-24 bg-slate-50/80 relative">
           <div className="mx-auto max-w-7xl px-6">
             <div className="reveal text-center max-w-3xl mx-auto mb-16">
-              <span className="inline-block rounded-full bg-red-50 border border-red-100 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-red-600 mb-4">
+              <span className="inline-block rounded-full bg-red-50 border border-red-100 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-red-600 mb-5">
                 Sound familiar?
               </span>
               <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
                 The problems every Kuwait HVAC contractor faces
               </h2>
-              <p
-                dir="rtl"
-                className="text-slate-500 text-lg font-medium"
-              >
+              <p dir="rtl" className="text-slate-500 text-lg font-medium">
                 المشاكل التي يعاني منها كل مقاول تكييف في الكويت
               </p>
             </div>
@@ -455,15 +452,19 @@ export default function Home() {
               {painPoints.map((p, i) => (
                 <div
                   key={p.num}
-                  className="reveal hover-lift bg-white rounded-3xl border border-slate-200/70 p-8 shadow-sm"
+                  className="reveal hover-lift bg-white rounded-3xl border border-slate-200/60 p-8 shadow-sm overflow-hidden relative"
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
-                  <div className="flex items-start gap-5">
-                    <div className="h-14 w-14 shrink-0 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-3xl shadow-sm">
+                  {/* Subtle number watermark */}
+                  <div className="absolute top-4 right-5 text-7xl font-black text-slate-100 select-none pointer-events-none leading-none">
+                    {p.num}
+                  </div>
+                  <div className="flex items-start gap-5 relative">
+                    <div className="h-14 w-14 shrink-0 rounded-2xl bg-blue-50 border border-blue-100/80 flex items-center justify-center text-3xl shadow-sm">
                       {p.icon}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <span className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400">
+                      <span className="text-[11px] font-black uppercase tracking-[0.2em] text-blue-400">
                         {p.num}
                       </span>
                       <h3 className="text-lg font-extrabold text-slate-900 mt-1 mb-2 leading-snug">
