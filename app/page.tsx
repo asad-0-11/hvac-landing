@@ -367,6 +367,69 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            {/* Mock dashboard preview */}
+            <div className="mt-16 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+              {/* Browser chrome */}
+              <div className="flex items-center gap-2 bg-slate-800/80 px-4 py-3 border-b border-white/10">
+                <span className="h-3 w-3 rounded-full bg-red-500/80" />
+                <span className="h-3 w-3 rounded-full bg-amber-400/80" />
+                <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
+                <div className="flex-1 mx-4 h-5 rounded-md bg-white/10 flex items-center px-3">
+                  <span className="text-[10px] text-white/40 font-medium">app.hvacpro.kw / dashboard</span>
+                </div>
+              </div>
+              {/* Dashboard UI */}
+              <div className="bg-slate-900/60 backdrop-blur-sm p-5">
+                {/* Top bar */}
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <div className="h-4 w-36 bg-white/20 rounded mb-1.5" />
+                    <div className="h-3 w-24 bg-white/10 rounded" />
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="h-8 w-24 rounded-lg bg-blue-500/40 border border-blue-400/30" />
+                    <div className="h-8 w-24 rounded-lg bg-white/10 border border-white/10" />
+                  </div>
+                </div>
+                {/* KPI cards row */}
+                <div className="grid grid-cols-4 gap-3 mb-4">
+                  {[
+                    { label: "Active AMCs", val: "142", color: "from-blue-500/30 to-blue-600/20", badge: "+8 this month" },
+                    { label: "Expiring Soon", val: "12", color: "from-amber-500/30 to-amber-600/20", badge: "Next 30 days" },
+                    { label: "Open Jobs", val: "38", color: "from-violet-500/30 to-violet-600/20", badge: "4 urgent" },
+                    { label: "Revenue MTD", val: "KD 8,240", color: "from-emerald-500/30 to-emerald-600/20", badge: "+22% vs last" },
+                  ].map(k => (
+                    <div key={k.label} className={`rounded-xl bg-gradient-to-br ${k.color} border border-white/10 p-3`}>
+                      <div className="text-[10px] font-semibold text-white/50 mb-1">{k.label}</div>
+                      <div className="text-base font-black text-white mb-1">{k.val}</div>
+                      <div className="text-[9px] text-white/40">{k.badge}</div>
+                    </div>
+                  ))}
+                </div>
+                {/* Table rows */}
+                <div className="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                  <div className="grid grid-cols-5 gap-2 px-4 py-2 border-b border-white/10">
+                    {["Client", "Contract", "AC Units", "Expiry", "Status"].map(h => (
+                      <div key={h} className="text-[10px] font-bold uppercase tracking-wider text-white/30">{h}</div>
+                    ))}
+                  </div>
+                  {[
+                    { client: "Al Hamra Tower", contract: "AMC-2024-089", units: "48", expiry: "Jun 15, 2025", status: "Active", statusColor: "bg-emerald-400/20 text-emerald-300" },
+                    { client: "Kuwait Mall", contract: "AMC-2024-091", units: "124", expiry: "Jun 30, 2025", status: "⚠ Expiring", statusColor: "bg-amber-400/20 text-amber-300" },
+                    { client: "Salmiya Plaza", contract: "AMC-2024-076", units: "32", expiry: "Aug 10, 2025", status: "Active", statusColor: "bg-emerald-400/20 text-emerald-300" },
+                  ].map((row, i) => (
+                    <div key={i} className="grid grid-cols-5 gap-2 px-4 py-2.5 border-b border-white/5 hover:bg-white/5">
+                      <div className="text-[11px] font-semibold text-white/70">{row.client}</div>
+                      <div className="text-[11px] text-white/40 font-mono">{row.contract}</div>
+                      <div className="text-[11px] text-white/50">{row.units} units</div>
+                      <div className="text-[11px] text-white/50">{row.expiry}</div>
+                      <div><span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${row.statusColor}`}>{row.status}</span></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
