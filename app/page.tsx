@@ -492,6 +492,43 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── HOW IT WORKS ──────────────────────────────────────── */}
+        <section className="py-20 bg-white relative overflow-hidden">
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="reveal text-center mb-14">
+              <span className="inline-block rounded-full bg-blue-50 border border-blue-100 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-blue-700 mb-5">
+                How It Works
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+                Up and running in days, not months.
+              </h2>
+            </div>
+            <div className="relative grid md:grid-cols-3 gap-8">
+              {/* Connector line (desktop only) */}
+              <div className="absolute top-8 left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent hidden md:block pointer-events-none" />
+              {[
+                { step: "01", icon: "📋", title: "We map your contracts", desc: "Send us your Excel sheet. We import all your AMC contracts, clients, and AC assets. Done in 48 hours.", ar: "نستورد عقودك وبياناتك خلال 48 ساعة." },
+                { step: "02", icon: "📱", title: "Your team gets onboarded", desc: "A 30-min WhatsApp call. Your technicians get the app. Your managers get the dashboard.", ar: "مكالمة واتساب 30 دقيقة — فريقك جاهز." },
+                { step: "03", icon: "🚀", title: "You're live", desc: "Contracts tracked, reminders firing, invoices going out in Arabic. Full control from day one.", ar: "العقود تحت السيطرة والفواتير تصدر بالعربية." },
+              ].map((s, i) => (
+                <div key={i} className="reveal flex flex-col items-center text-center" style={{ transitionDelay: `${i * 100}ms` }}>
+                  <div className="relative mb-5">
+                    <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-100 flex items-center justify-center text-3xl shadow-sm z-10 relative">
+                      {s.icon}
+                    </div>
+                    <div className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-blue-600 flex items-center justify-center text-[10px] font-black text-white z-20">
+                      {i + 1}
+                    </div>
+                  </div>
+                  <h3 className="text-base font-extrabold text-slate-900 mb-2">{s.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-2">{s.desc}</p>
+                  <p dir="rtl" className="text-blue-500/70 text-xs font-semibold">{s.ar}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ─── FEATURES ──────────────────────────────────────────── */}
         <section
           id="features"
