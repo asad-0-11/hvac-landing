@@ -611,7 +611,8 @@ export default function Home() {
             {/* Brand */}
             <div>
               <a href="#hero" className="inline-flex items-center gap-2.5 mb-5">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src="/smp-logo.png"
                   alt="ShipMyProject logo"
                   width={36}
