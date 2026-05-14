@@ -151,11 +151,11 @@ export default function Home() {
       {/* ─── NAVBAR ─────────────────────────────────────────────── */}
       <nav
         id="navbar"
-        className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+        className="fixed inset-x-0 top-0 z-50 bg-white border-b border-slate-200/80 shadow-sm transition-all duration-300"
       >
         <div
           id="navWrap"
-          className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 transition-all duration-300"
+          className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 transition-all duration-300"
         >
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2.5 group">
