@@ -159,13 +159,13 @@ export default function Home() {
         >
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2.5 group">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/smp-logo.png"
               alt="ShipMyProject logo"
               width={36}
               height={36}
               className="rounded-xl object-cover shadow-sm"
-              priority
             />
             <div className="flex flex-col leading-tight">
               <span className="text-lg font-extrabold tracking-tight text-slate-900">
