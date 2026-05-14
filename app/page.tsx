@@ -179,26 +179,25 @@ export default function Home() {
           </a>
 
           {/* Desktop nav links */}
-          <ul className="hidden items-center gap-7 text-sm font-bold text-slate-600 lg:flex">
+          <ul className="hidden items-center gap-8 text-sm font-semibold text-slate-500 lg:flex">
             <li>
-              <a href="#pain" className="hover:text-blue-600 transition-colors">
-                Pain Points
+              <a href="#pain" className="hover:text-slate-900 transition-colors py-1">
+                Why Switch
               </a>
             </li>
             <li>
-              <a
-                href="#features"
-                className="hover:text-blue-600 transition-colors"
-              >
+              <a href="#features" className="hover:text-slate-900 transition-colors py-1">
                 Features
               </a>
             </li>
             <li>
-              <a
-                href="#kuwait"
-                className="hover:text-blue-600 transition-colors"
-              >
+              <a href="#kuwait" className="hover:text-slate-900 transition-colors py-1">
                 Built for Kuwait
+              </a>
+            </li>
+            <li>
+              <a href="#demo" className="hover:text-slate-900 transition-colors py-1">
+                Contact
               </a>
             </li>
           </ul>
@@ -209,13 +208,13 @@ export default function Home() {
               href="https://wa.me/96550324743"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
             >
-              WhatsApp
+              <span className="text-base">📱</span> WhatsApp
             </a>
             <a
               href="#demo"
-              className="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-blue-600 hover:-translate-y-px hover:shadow-lg"
+              className="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-blue-600 hover:-translate-y-px hover:shadow-lg hover:shadow-blue-200"
             >
               Book Demo →
             </a>
