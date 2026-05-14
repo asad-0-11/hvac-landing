@@ -296,9 +296,14 @@ export default function Home() {
                     📱 WhatsApp Us
                   </a>
                 </div>
-                <p className="text-blue-400/60 text-sm font-medium">
-                  Built in Kuwait. For Kuwait.
-                </p>
+                {/* Trust pills */}
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {["✓ Arabic invoicing", "✓ KWD native", "✓ No IT setup needed", "✓ WhatsApp support"].map(t => (
+                    <span key={t} className="inline-flex items-center gap-1 rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-semibold text-blue-200">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Arabic */}
