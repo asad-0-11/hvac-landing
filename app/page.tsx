@@ -611,42 +611,31 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-4 max-w-5xl mx-auto">
-              {/* English */}
-              <div className="space-y-3">
-                {trustItems.map((item, i) => (
-                  <div
-                    key={i}
-                    className="reveal hover-lift flex items-center gap-4 bg-white rounded-2xl border border-slate-200/70 px-5 py-4 shadow-sm"
-                    style={{ transitionDelay: `${i * 60}ms` }}
-                  >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-sm font-black">
-                      ✓
-                    </span>
-                    <span className="text-slate-800 font-semibold text-sm">
-                      {item.en}
-                    </span>
+            <div className="max-w-3xl mx-auto space-y-3">
+              {trustItems.map((item, i) => (
+                <div
+                  key={i}
+                  className="reveal hover-lift bg-white rounded-2xl border border-slate-200/60 shadow-sm overflow-hidden"
+                  style={{ transitionDelay: `${i * 60}ms` }}
+                >
+                  <div className="flex items-stretch">
+                    {/* Check */}
+                    <div className="flex items-center justify-center px-5 bg-emerald-50 border-r border-emerald-100">
+                      <span className="h-7 w-7 flex items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-sm font-black shrink-0">
+                        ✓
+                      </span>
+                    </div>
+                    {/* EN */}
+                    <div className="flex-1 px-5 py-4">
+                      <span className="text-slate-800 font-semibold text-sm">{item.en}</span>
+                    </div>
+                    {/* AR */}
+                    <div dir="rtl" className="flex-1 px-5 py-4 border-l border-slate-100 bg-slate-50/50">
+                      <span className="text-slate-600 font-medium text-sm">{item.ar}</span>
+                    </div>
                   </div>
-                ))}
-              </div>
-
-              {/* Arabic */}
-              <div dir="rtl" className="space-y-3">
-                {trustItems.map((item, i) => (
-                  <div
-                    key={i}
-                    className="reveal hover-lift flex items-center gap-4 bg-white rounded-2xl border border-slate-200/70 px-5 py-4 shadow-sm"
-                    style={{ transitionDelay: `${i * 60 + 30}ms` }}
-                  >
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-sm font-black">
-                      ✓
-                    </span>
-                    <span className="text-slate-800 font-semibold text-sm">
-                      {item.ar}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
