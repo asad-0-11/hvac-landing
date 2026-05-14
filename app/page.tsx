@@ -125,28 +125,11 @@ const trustItems = [
 export default function Home() {
   return (
     <>
-      {/* ─── AMBIENT BACKGROUND ─────────────────────────────────── */}
+      {/* ─── AMBIENT BACKGROUND (light sections only) ───────────── */}
       <div
-        className="fixed inset-0 -z-10 overflow-hidden pointer-events-none"
-        style={{
-          background: "#f8fafc",
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23e2e8f0' fill-opacity='0.45' fill-rule='evenodd'/%3E%3C/svg%3E\")",
-        }}
-      >
-        <div
-          className="absolute -top-40 -left-32 h-[700px] w-[700px] rounded-full blur-[180px]"
-          style={{ background: "rgba(37,99,235,0.08)" }}
-        />
-        <div
-          className="absolute top-1/2 -right-40 h-[600px] w-[600px] rounded-full blur-[160px]"
-          style={{ background: "rgba(124,58,237,0.06)" }}
-        />
-        <div
-          className="absolute bottom-0 left-1/3 h-[500px] w-[500px] rounded-full blur-[140px]"
-          style={{ background: "rgba(16,185,129,0.05)" }}
-        />
-      </div>
+        className="fixed inset-0 overflow-hidden pointer-events-none"
+        style={{ zIndex: -20, background: "#f8fafc" }}
+      />
 
       {/* ─── NAVBAR ─────────────────────────────────────────────── */}
       <nav
@@ -249,22 +232,30 @@ export default function Home() {
         {/* ─── HERO ──────────────────────────────────────────────── */}
         <section
           id="hero"
-          className="relative overflow-hidden"
+          className="relative isolate overflow-hidden"
           style={{ paddingTop: "calc(4rem + 56px)", paddingBottom: "5rem" }}
         >
-          {/* Background layers */}
-          <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, #0a0f1e 0%, #0c1a3a 40%, #0f172a 100%)" }} />
-          {/* Mesh gradient orbs */}
-          <div className="absolute -top-32 -right-32 h-[700px] w-[700px] rounded-full blur-[130px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%)" }} />
-          <div className="absolute top-1/2 -left-48 h-[600px] w-[600px] rounded-full blur-[120px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)" }} />
-          <div className="absolute bottom-0 left-1/3 h-[500px] w-[500px] rounded-full blur-[100px] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%)" }} />
-          {/* Subtle dot grid */}
-          <div className="absolute inset-0 -z-10 opacity-[0.035]"
+          {/* Solid dark base — fills the entire section, no bleed */}
+          <div
+            className="absolute inset-0 -z-10"
+            style={{ background: "linear-gradient(135deg, #0a0f1e 0%, #0c1a3a 40%, #0f172a 100%)" }}
+          />
+          {/* Orbs clipped inside their own overflow-hidden wrapper so blur stays inside */}
+          <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+            <div className="absolute -top-32 -right-32 h-[700px] w-[700px] rounded-full blur-[130px]" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%)" }} />
+            <div className="absolute top-1/2 -left-48 h-[600px] w-[600px] rounded-full blur-[120px]" style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)" }} />
+            <div className="absolute bottom-0 left-1/3 h-[400px] w-[400px] rounded-full blur-[80px]" style={{ background: "radial-gradient(circle, rgba(16,185,129,0.07) 0%, transparent 70%)" }} />
+          </div>
+          {/* Dot grid */}
+          <div
+            className="absolute inset-0 -z-10 opacity-[0.035]"
             style={{
               backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
               backgroundSize: "32px 32px",
             }}
           />
+          {/* Hard bottom edge — prevents any bleed into the next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 -z-10" style={{ background: "#0f172a" }} />
 
           <div className="relative z-10 mx-auto max-w-7xl px-6">
             {/* Top badge */}
@@ -497,7 +488,7 @@ export default function Home() {
         </section>
 
         {/* ─── PAIN POINTS ───────────────────────────────────────── */}
-        <section id="pain" className="py-24 bg-slate-50/80 relative">
+        <section id="pain" className="py-24 bg-slate-50 relative">
           <div className="mx-auto max-w-7xl px-6">
             <div className="reveal text-center max-w-3xl mx-auto mb-16">
               <span className="inline-block rounded-full bg-red-50 border border-red-100 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-red-600 mb-5">
@@ -651,7 +642,7 @@ export default function Home() {
         </section>
 
         {/* ─── BUILT FOR KUWAIT ──────────────────────────────────── */}
-        <section id="kuwait" className="py-24 bg-slate-50/80 relative">
+        <section id="kuwait" className="py-24 bg-slate-50 relative">
           <div className="mx-auto max-w-7xl px-6">
             <div className="reveal text-center max-w-3xl mx-auto mb-16">
               <span className="inline-block rounded-full bg-blue-50 border border-blue-100 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-blue-700 mb-5">
