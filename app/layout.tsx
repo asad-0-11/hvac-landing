@@ -1,26 +1,30 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
   subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "HVACPro Kuwait — AMC Contract Software for Kuwait HVAC Contractors",
+  title: "HVAC AMC Software for Kuwait Contractors | HVACPro Kuwait",
   description:
-    "The first software built for Kuwait HVAC contractors. Track AMC contracts, dispatch technicians, send Arabic invoices, and renew contracts on autopilot.",
+    "Track AMC contracts, dispatch technicians, send KWD Arabic invoices, and renew contracts on autopilot. The first software built specifically for Kuwait HVAC contractors.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} antialiased`}>
-      <body className="min-h-screen bg-white">{children}</body>
+    <html lang="en" className={`${manrope.variable} scroll-smooth`}>
+      <body
+        className="min-h-screen antialiased"
+        style={{ fontFamily: "var(--font-manrope), system-ui, sans-serif" }}
+      >
+        {children}
+      </body>
     </html>
   );
 }
