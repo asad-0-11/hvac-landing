@@ -558,7 +558,7 @@ export default function Home() {
                   style={{ transitionDelay: `${i * 60}ms` }}
                 >
                   <div className="flex items-start justify-between mb-5">
-                    <div className="h-13 w-13 rounded-2xl bg-white/10 flex items-center justify-center text-3xl">
+                    <div className="h-12 w-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center text-2xl">
                       {f.icon}
                     </div>
                     <span
